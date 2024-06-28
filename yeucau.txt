@@ -1,0 +1,33 @@
+1 Quản lý thông tin sinh viên:
+
+Thêm, sửa, xóa thông tin sinh viên.
+Tìm kiếm sinh viên theo các tiêu chí: tên, mã sinh viên, lớp, ...
+Xem chi tiết thông tin sinh viên: tên, ngày sinh, địa chỉ, email, số điện thoại, ...
+Quản lý khóa học:
+
+2>Thêm, sửa, xóa khóa học.
+Tìm kiếm khóa học theo tên, mã khóa học, giảng viên, ...
+Xem chi tiết thông tin khóa học: tên khóa học, mã khóa học, mô tả, số tín chỉ, giảng viên phụ trách, ...
+Quản lý điểm:
+
+3>Nhập điểm cho sinh viên.
+Sửa, xóa điểm của sinh viên.
+Tìm kiếm và xem điểm của sinh viên theo từng môn học, kỳ học.
+Quản lý lớp học:
+
+4>Thêm, sửa, xóa lớp học.
+Gán sinh viên vào lớp học.
+Tìm kiếm lớp học theo tên lớp, mã lớp, khóa học, ...
+Quản lý giảng viên:
+
+5>Thêm, sửa, xóa thông tin giảng viên.
+Tìm kiếm giảng viên theo tên, mã giảng viên, khóa học phụ trách, ...
+Quản lý đăng ký khóa học:
+
+6>Sinh viên đăng ký và hủy đăng ký khóa học.
+Xác nhận đăng ký khóa học.
+Kiểm tra số lượng sinh viên đã đăng ký cho mỗi khóa học.
+Quản lý lịch học:
+
+7>Xem lịch học của từng lớp, từng sinh viên.
+Lên lịch và thay đổi lịch học.
