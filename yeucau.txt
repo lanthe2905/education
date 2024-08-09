@@ -31,3 +31,56 @@ Quản lý lịch học:
 
 7>Xem lịch học của từng lớp, từng sinh viên.
 Lên lịch và thay đổi lịch học.
+
+/============================================
+Phân tích yêu cầu kỹ thuật nâng cao
+1. Hỗ trợ đa ngôn ngữ (Multilingual Support)
+Yêu cầu: Hệ thống phải hỗ trợ nhiều ngôn ngữ khác nhau cho giao diện người dùng và nội dung động.
+
+Chi tiết kỹ thuật:
+
+Tạo cấu trúc dữ liệu cho các chuỗi ngôn ngữ trong cơ sở dữ liệu.
+Tích hợp thư viện đa ngôn ngữ (ví dụ: i18n) trong frontend và backend.
+Cho phép người dùng chọn ngôn ngữ ưa thích của họ và lưu trữ tùy chọn này.
+2. Tích hợp thông báo thời gian thực (Real-time Notifications)
+Yêu cầu: Hệ thống phải có khả năng gửi thông báo thời gian thực cho người dùng về các sự kiện quan trọng như bài tập mới, thông báo mới, thay đổi lịch học.
+
+Chi tiết kỹ thuật:
+
+Sử dụng WebSockets hoặc các dịch vụ như Firebase Cloud Messaging (FCM) để gửi thông báo thời gian thực.
+Xây dựng hệ thống quản lý thông báo trên frontend để hiển thị thông báo ngay khi nhận được.
+3. Tích hợp lịch học đồng bộ với các ứng dụng lịch bên ngoài (Calendar Integration)
+Yêu cầu: Hệ thống phải có khả năng đồng bộ lịch học với các ứng dụng lịch bên ngoài như Google Calendar, Outlook.
+
+Chi tiết kỹ thuật:
+
+Sử dụng API của Google Calendar, Microsoft Outlook để tích hợp lịch học.
+Cung cấp giao diện để người dùng liên kết tài khoản lịch bên ngoài của họ và quản lý lịch học từ hệ thống.
+4. Hỗ trợ tìm kiếm nâng cao và lọc (Advanced Search and Filtering)
+Yêu cầu: Hệ thống phải hỗ trợ tìm kiếm và lọc nâng cao cho các lớp học, buổi học, bài tập, thông báo và người dùng.
+
+Chi tiết kỹ thuật:
+
+Sử dụng công nghệ tìm kiếm toàn văn (full-text search) như Elasticsearch hoặc tích hợp các tính năng tìm kiếm nâng cao của cơ sở dữ liệu.
+Xây dựng giao diện tìm kiếm và lọc linh hoạt, cho phép người dùng tìm kiếm theo nhiều tiêu chí khác nhau.
+5. Hỗ trợ phân quyền và xác thực đa yếu tố (Role-based Access Control and Multi-factor Authentication)
+Yêu cầu: Hệ thống phải có khả năng phân quyền chi tiết và hỗ trợ xác thực đa yếu tố (MFA) để tăng cường bảo mật.
+
+Chi tiết kỹ thuật:
+
+Xây dựng hệ thống phân quyền chi tiết dựa trên vai trò và quyền hạn của người dùng.
+Tích hợp các phương thức xác thực đa yếu tố như OTP (One-Time Password), sử dụng Google Authenticator hoặc SMS.
+6. Hỗ trợ tải tệp lớn và quản lý phiên bản (Large File Upload and Versioning)
+Yêu cầu: Hệ thống phải hỗ trợ tải lên và quản lý các tệp lớn như tài liệu học tập, và theo dõi phiên bản của các tệp này.
+
+Chi tiết kỹ thuật:
+
+Sử dụng các dịch vụ lưu trữ tệp như AWS S3, Google Cloud Storage để lưu trữ và quản lý tệp lớn.
+Xây dựng chức năng quản lý phiên bản cho các tệp, cho phép người dùng xem và khôi phục các phiên bản trước đó.
+7. Hỗ trợ phân tích và báo cáo nâng cao (Advanced Analytics and Reporting)
+Yêu cầu: Hệ thống phải có khả năng phân tích và báo cáo nâng cao về hiệu suất học tập của sinh viên, hoạt động của giảng viên, và các thông tin khác.
+
+Chi tiết kỹ thuật:
+
+Sử dụng các công cụ phân tích và báo cáo như Power BI, Tableau, hoặc tích hợp trực tiếp với hệ thống.
+Xây dựng các bảng điều khiển (dashboard) tùy chỉnh, cho phép người dùng tạo và xem các báo cáo theo nhu cầu.
