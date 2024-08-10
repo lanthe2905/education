@@ -12,11 +12,7 @@ import UsersController from '#controllers/users_controller'
 
 router.group(() => {
   //resource users
-  router.group(() => {
-    router.resource('users', UsersController)
-  }).prefix('/user')
-
-
+  router.resource('users', UsersController)
 
 
 }).prefix('api/v1')

@@ -20,7 +20,9 @@ export default class SinhVienRepository {
   }
 
   async update(payload: any, id: number) {
-    return await User.query().where('id', id).update(payload)
+    const user = await User.findOrFail(id)
+    user.merge(payload)
+    await user.save()
   }
 
   async store(payload: any) {

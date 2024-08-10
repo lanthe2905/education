@@ -4,35 +4,37 @@ export default class UsersSController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {}
+  async index({ response }: HttpContext) {
+    return response.send('ok')
+  }
 
   /**
    * Display form to create a new record
    */
-  async create({}: HttpContext) {}
+  async create({ }: HttpContext) { }
 
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {}
+  async store({ request }: HttpContext) { }
 
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params }: HttpContext) { }
 
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit({ params }: HttpContext) { }
 
   /**
    * Handle form submission for the edit action
    */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request }: HttpContext) { }
 
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params }: HttpContext) { }
 }
