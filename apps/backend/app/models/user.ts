@@ -15,28 +15,28 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare id: number
 
   @column({})
-  declare maDinhDanh: string
+  declare ma_dinh_danh: string
 
   @column()
-  declare lop: string
+  declare ma_lop: string
 
   @column()
-  declare hoVaTen: string | null
+  declare ho_va_ten: string | null
 
   @column()
-  declare gioiTinh: string | null
+  declare gioi_tinh: string | null
 
   @column()
-  declare ngaySinh: string | null
+  declare ngay_sinh: string | null
 
   @column()
-  declare diaChi: string | null
+  declare dia_chi: string | null
 
   @column()
   declare email: string
 
   @column()
-  declare type: 'sinh_vien' | 'giaovien' | 'admin'
+  declare type: 'sinh_vien' | 'giao_vien' | 'admin'
 
   @column()
   declare avatar: string | null

@@ -12,7 +12,9 @@ import UsersController from '#controllers/users_controller'
 
 router.group(() => {
   //resource users
-  router.resource('users', UsersController)
+  router.post('users/giao-vien', [UsersController, 'storeGiaoVien'])
+  router.get('users/giao-vien/:id', [UsersController, 'showGiaoVien'])
+  router.resource('users', UsersController).except(['create', 'edit'])
 
 
 }).prefix('api/v1')

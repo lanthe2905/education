@@ -3,16 +3,22 @@ import vine from '@vinejs/vine'
 /**
  * Validates the post's creation action
  */
-export const createPostValidator = vine.compile(
+export const createSinhVien = vine.compile(
   vine.object({
-    maDinhDanh: vine.string().trim().minLength(6),
+    ma_dinh_danh: vine.string().trim().minLength(6),
     lop: vine.string().trim(),
-    hoVaTen: vine.string().trim().escape(),
-    gioiTinh: vine.string().trim().escape().nullable().optional(),
-    ngaySinh: vine.string().trim().escape(),
-    diaChi: vine.string().trim().escape().nullable().optional(),
-    email: vine.string().trim().escape(),
-    type: vine.string().trim().escape(),
+    ho_va_ten: vine.string().trim().escape(),
+    gioi_tinh: vine.enum(['nam', 'nu']).nullable().optional(),
+    ngay_sinh: vine.date({ formats: "DD/MM/YYYY" }).nullable().optional(),
+    dia_chi: vine.string().trim().escape().nullable().optional(),
+    email: vine.string().unique(async (db, value, field) => {
+      const user = await db
+        .from('users')
+        .whereNot('id', field.meta.userId)
+        .where('email', value)
+        .first()
+      return !user
+    }),
     phone: vine.string().trim().escape().nullable().optional(),
     file: vine.file({
       size: '2mb',

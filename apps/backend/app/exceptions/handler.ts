@@ -13,7 +13,14 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    * response to the client
    */
   async handle(error: unknown, ctx: HttpContext) {
-    return super.handle(error, ctx)
+
+    return ctx.response.status(500).json({
+      code: 'server_error',
+      // @ts-ignore
+      message: error?.message ?? message
+    })
+    // return super.handle(error, ctx)
+
   }
 
   /**

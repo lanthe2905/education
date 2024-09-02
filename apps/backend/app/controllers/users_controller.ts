@@ -1,11 +1,16 @@
 import type { HttpContext } from '@adonisjs/core/http'
+import { inject } from '@adonisjs/core'
+import { UserRepository } from '#repositories/users_repository'
+import { createSinhVien } from '#/validators/sinh_vien.js'
 
-export default class UsersSController {
+@inject()
+export default class UsersController {
+  constructor(public repo: UserRepository) { }
   /**
    * Display a list of resource
    */
-  async index({ response }: HttpContext) {
-    return response.send('ok')
+  async index({ request, response }: HttpContext) {
+    return response.send(await this.repo.getData(request.all()))
   }
 
   /**
@@ -16,12 +21,29 @@ export default class UsersSController {
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) { }
+  async store({ request, response }: HttpContext) {
+    const payload = await request.validateUsing(createSinhVien)
+    return response.status(201).send(await this.repo.store(payload))
+  }
+
+  async storeGiaoVien({ request, response }: HttpContext) {
+    const payload = await request.validateUsing(createSinhVien)
+    return response.status(201).send(await this.repo.store(payload))
+  }
 
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) { }
+  async show({ params, response }: HttpContext) {
+    const { id } = params
+    return response.send(await this.repo.showGiaoVien(id))
+  }
+
+  async showGiaoVien({ params, response }: HttpContext) {
+    const { id } = params
+    return response.send(await this.repo.showGiaoVien(id))
+
+  }
 
   /**
    * Edit individual record
@@ -36,5 +58,8 @@ export default class UsersSController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) { }
+  async destroy({ request, params }: HttpContext) {
+    await this.repo.remove(request.param('id'))
+    return "Xoá tài khoản thành công"
+  }
 }
