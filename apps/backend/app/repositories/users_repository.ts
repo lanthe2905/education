@@ -9,7 +9,7 @@ export class UserRepository {
     return await User.query()
       .where('type', type)
       .if(search, (qu) => {
-        qu.where('hoVaTen', 'like', `%${ search }%`)
+      qu.where('ho_va_ten', 'like', `%${ search }%`)
           .orWhere('maDinhDanh', 'like', `%${search}%`)
       })
       .if(sdt, q => {

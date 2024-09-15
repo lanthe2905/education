@@ -10,26 +10,26 @@ export default class Enrollment extends BaseModel {
   declare id: number
 
   @column()
-  declare studentId: number
+  declare user_id: number
 
   @column()
-  declare classId: number
+  declare class_id: number
 
   @belongsTo(() => User, {
     localKey: 'id',
-    foreignKey: 'studentId'
+    foreignKey: 'student_id'
   })
   declare student: BelongsTo<typeof User>
 
   @belongsTo(() => Classes, {
     localKey: 'id',
-    foreignKey: 'classId'
+    foreignKey: 'class_id'
   })
   declare class: BelongsTo<typeof Classes>
 
   @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
+  declare created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime
+  declare updated_at: DateTime
 }

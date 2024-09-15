@@ -8,7 +8,7 @@ export default class Course extends BaseModel {
   declare id: number
 
   @column()
-  declare courseName: string
+  declare name: string
 
   @column()
   declare description: string
@@ -17,11 +17,11 @@ export default class Course extends BaseModel {
   declare credits: number
 
   @column()
-  declare lecturerId: number
+  declare lecturer_id: number //id giảng viên
 
   @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
+  declare created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime
+  declare updated_at: DateTime
 }

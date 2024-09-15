@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { UserRepository } from '#repositories/users_repository'
-import { createSinhVien } from '#/validators/sinh_vien.js'
+import { createSinhVien } from '#validators/sinh_vien'
 
 @inject()
 export default class UsersController {
