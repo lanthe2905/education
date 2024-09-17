@@ -1,0 +1,33 @@
+@baseUrlV1 = http://localhost:3333/api/v1
+
+GET {{baseUrlV1}}/users
+###
+GET {{baseUrlV1}}/users/1
+
+###
+POST {{baseUrlV1}}/users
+Content-Type: application/json
+
+{
+    "ma_dinh_danh": "161250533419",
+    "ho_va_ten": "Nguyễn Thế Lân",
+    "gioi_tinh": "nam",
+    "ngay_sinh": "1997-29-05",
+    "dia_chi": "04 Hải hồ, Q hải châu",
+    "email": "nguyenthelandev@gmail.com"
+}
+
+#============= Course api
+###
+GET {{baseUrlV1}}/courses
+
+###
+POST {{baseUrlV1}}/courses
+Content-Type: application/json
+
+{
+    "name": "Học tiếng anh cùng với TEDDY",
+    "description": "Dành cho các bạn nhỏ dưới 12 tuổi",
+    "credits": 100000,
+    "lecture_id": 1,
+}
