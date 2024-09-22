@@ -15,28 +15,28 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare id: number
 
   @column({})
-  declare ma_dinh_danh: string
+  declare identifier: string
 
   @column()
-  declare ma_lop: string
+  declare class_id: string
 
   @column()
-  declare ho_va_ten: string | null
+  declare full_name: string | null
 
   @column()
-  declare gioi_tinh: string | null
+  declare sex: boolean
 
   @column()
-  declare ngay_sinh: string | null
+  declare date: string | null
 
   @column()
-  declare dia_chi: string | null
+  declare address: string | null
 
   @column()
   declare email: string
 
   @column()
-  declare type: 'sinh_vien' | 'giao_vien' | 'admin'
+  declare type: 'student' | 'instructor' | 'admin'
 
   @column()
   declare avatar: string | null
@@ -48,10 +48,10 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare password: string
 
   @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
+  declare created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updated_at: DateTime | null
 
   static accessTokens = DbAccessTokensProvider.forModel(User)
 }

@@ -5,12 +5,12 @@ import vine from '@vinejs/vine'
  */
 export const create_sinh_vien = vine.compile(
   vine.object({
-    ma_dinh_danh: vine.string().trim().minLength(6),
-    lop: vine.string().trim().nullable().optional(),
-    ho_va_ten: vine.string().trim().escape(),
-    gioi_tinh: vine.enum(['nam', 'nu']).nullable().optional(),
-    ngay_sinh: vine.date({ formats: "YYYY-MM-DD" }).nullable().optional(),
-    dia_chi: vine.string().trim().escape().nullable().optional(),
+    identifier: vine.string().trim().minLength(6),
+    class_id: vine.string().trim().nullable().optional(),
+    full_name: vine.string().trim().escape(),
+    sex: vine.boolean().nullable().optional(),
+    date: vine.date({ formats: "YYYY-MM-DD" }).nullable().optional(),
+    address: vine.string().trim().escape().nullable().optional(),
     email: vine.string().unique(async (db, value, field) => {
       const user = await db
         .from('users')
