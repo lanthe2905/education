@@ -10,6 +10,7 @@
 import router from '@adonisjs/core/services/router'
 import UsersController from '#controllers/users_controller'
 import CourseController from '#controllers/courses_controller'
+import GradesController from '#controllers/grades_controller'
 
 router.group(() => {
   //resource users
@@ -18,5 +19,7 @@ router.group(() => {
 
   router.resource('users', UsersController).except(['create', 'edit'])
   router.resource('courses', CourseController).except(['create', 'edit'])
+
+  router.resource('/grades', GradesController).except(['create', 'edit'])
 
 }).prefix('api/v1')

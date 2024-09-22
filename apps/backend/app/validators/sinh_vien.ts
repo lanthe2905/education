@@ -3,7 +3,7 @@ import vine from '@vinejs/vine'
 /**
  * Validates the post's creation action
  */
-export const createSinhVien = vine.compile(
+export const create_sinh_vien = vine.compile(
   vine.object({
     ma_dinh_danh: vine.string().trim().minLength(6),
     lop: vine.string().trim().nullable().optional(),

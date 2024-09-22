@@ -13,6 +13,7 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    * response to the client
    */
   async handle(error: unknown, ctx: HttpContext) {
+    console.log(error)
     if(error instanceof errors.E_VALIDATION_ERROR) {
       return ctx.response.status(500).json({
         code: 'validation_error',

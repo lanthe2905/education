@@ -1,27 +1,23 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
-import User from './user.js'
+import Course from './courses.js'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
-//Course: Khoá học
-export default class Course extends BaseModel {
+export default class Grade extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare name: string
+  declare student_id: number
 
   @column()
-  declare course_code: string
+  declare course_id: number
 
   @column()
-  declare descriptions: string
+  declare grade: number
 
   @column()
-  declare credits: number
-
-  @column()
-  declare instructor_id: number //id giảng viên
+  declare semester: string
 
   @column.dateTime({ autoCreate: true })
   declare created_at: DateTime
@@ -29,6 +25,6 @@ export default class Course extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updated_at: DateTime
 
-  @belongsTo(() => User, {localKey: 'id', foreignKey: "instructor_id"})
-  declare instructor: BelongsTo<typeof User>
+  @belongsTo(() => Course)
+  declare course: BelongsTo<typeof Course>
 }

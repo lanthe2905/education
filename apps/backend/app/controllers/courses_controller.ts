@@ -22,6 +22,14 @@ export default class CoursesController {
     return response.status(201).json( await this.repository.store(payload));
   }
 
+    /**
+   * Handle form submission for the create action
+   */
+    async update({ request, response }: HttpContext) {
+      const payload = await request.validateUsing(create_update_course);
+      return response.status(201).json( await this.repository.update(payload, request.param('id')));
+    }
+
   /**
    * Show individual record
    */
@@ -34,5 +42,9 @@ export default class CoursesController {
    */
   async destroy({ params, response }: HttpContext) {
     return response.send(await this.repository.remove(params["id"]));
+  }
+
+  async dropdown({response, request}: HttpContext) {
+    return response.send(await this.repository.dropdown(request))
   }
 }

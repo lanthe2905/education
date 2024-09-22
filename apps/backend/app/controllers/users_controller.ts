@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { UserRepository } from '#repositories/users_repository'
-import { createSinhVien } from '#validators/sinh_vien'
+import { create_sinh_vien } from '#validators/sinh_vien'
 
 @inject()
 export default class UsersController {
@@ -17,12 +17,12 @@ export default class UsersController {
    * Handle form submission for the create action
    */
   async store({ request, response }: HttpContext) {
-    const payload = await request.validateUsing(createSinhVien)
+    const payload = await request.validateUsing(create_sinh_vien)
     return response.status(201).send(await this.repo.store(payload))
   }
 
   async storeGiaoVien({ request, response }: HttpContext) {
-    const payload = await request.validateUsing(createSinhVien)
+    const payload = await request.validateUsing(create_sinh_vien)
     return response.status(201).send(await this.repo.store(payload))
   }
 
