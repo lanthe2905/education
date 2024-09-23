@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import  { type HasMany } from '@adonisjs/lucid/types/relations'
-import User from './user.js'
+import ClassEnrollment from './class_enrollment.js'
 
 export default class Class extends BaseModel {
   @column({ isPrimary: true })
@@ -13,15 +13,15 @@ export default class Class extends BaseModel {
   declare class_code: string
 
   @column.dateTime({ autoCreate: true })
-  declare create_at: DateTime
+  declare created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare update_at: DateTime
+  declare updated_at: DateTime
 
-  @hasMany(() => User, {
+  @hasMany(() => ClassEnrollment, {
     onQuery(query) {
-      query.select('id', 'full_name', 'sex', 'email')
+      query.select('id', 'class_id',  'student_id').preload('student_info')
     },
   })
-  declare enrollments: HasMany<typeof User>
+  declare enrollments: HasMany<typeof ClassEnrollment>
 }

@@ -9,13 +9,14 @@ POST {{baseUrlV1}}/users
 Content-Type: application/json
 
 {
-    "ma_dinh_danh": "161250533419",
-    "ho_va_ten": "Nguyễn Thế Lân",
-    "gioi_tinh": "nam",
-    "ngay_sinh": "1997-29-05",
-    "dia_chi": "04 Hải hồ, Q hải châu",
-    "email": "nguyenthelandev@gmail.com"
+    "identifier": "161250533419",
+    "full_name": "Nguyễn Thế Lân",
+    "sex": true,
+    "date": "1997-29-05",
+    "address": "04 Hải hồ, Q hải châu",
+    "email": "test@gmail.com"
 }
+
 
 #============= Course api
 ###
@@ -27,7 +28,51 @@ Content-Type: application/json
 
 {
     "name": "Học tiếng anh cùng với TEDDY",
-    "description": "Dành cho các bạn nhỏ dưới 12 tuổi",
+    "descriptions": "Dành cho các bạn nhỏ dưới 12 tuổi",
     "credits": 100000,
-    "lecture_id": 1,
+    "instructor_id": 4
 }
+
+###
+PUT {{baseUrlV1}}/courses/2
+Content-Type: application/json
+
+{
+    "name": "Học tiếng anh cùng với TEDDY",
+    "descriptions": "Dành cho các bạn nhỏ dưới 12 tuổi",
+    "credits": 1000.501,
+    "instructor_id": 4
+}
+
+###
+GET {{baseUrlV1}}/courses/1
+
+###
+DELETE  {{baseUrlV1}}/courses/1
+
+#============= class api
+###
+GET {{baseUrlV1}}/classes
+
+###
+POST {{baseUrlV1}}/classes
+Content-Type: application/json
+
+{
+    "class_name": "Fullstack developer",
+    "class_code": "24F1"
+}
+
+###
+POST {{baseUrlV1}}/classes/1
+Content-Type: application/json
+
+{
+    "class_name": "Fullstack developer",
+    "class_code": "24F1"
+}
+
+
+###
+DELETE  {{baseUrlV1}}/classes/1
+

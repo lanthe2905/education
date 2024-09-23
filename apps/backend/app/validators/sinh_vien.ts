@@ -9,7 +9,7 @@ export const create_sinh_vien = vine.compile(
     class_id: vine.string().trim().nullable().optional(),
     full_name: vine.string().trim().escape(),
     sex: vine.boolean().nullable().optional(),
-    date: vine.date({ formats: "YYYY-MM-DD" }).nullable().optional(),
+    date: vine.string().regex(/\d{4}-\d{2}-\d{2}/gm).nullable().optional(),
     address: vine.string().trim().escape().nullable().optional(),
     email: vine.string().unique(async (db, value, field) => {
       const user = await db
