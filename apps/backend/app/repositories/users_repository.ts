@@ -1,4 +1,5 @@
 
+import Course from "#models/courses";
 import User from "#models/user";
 import { inject } from "@adonisjs/core";
 
@@ -41,7 +42,7 @@ export class UserRepository {
   async store(payload: any) {
     await User.create({
       ...payload,
-      type: 'sinh_vien'
+      type: 'student'
     })
     return "Tạo học sinh thành công"
   }
@@ -52,6 +53,10 @@ export class UserRepository {
       type: 'giao_vien'
     })
     return "Tạo giáo viên thành công"
+  }
+
+  async getCourseByInstructor(instructor_id: number) {
+    return await Course.query().where('instructor_id', instructor_id)
   }
 
   async remove(id: number) {

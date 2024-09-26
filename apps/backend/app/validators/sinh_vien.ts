@@ -11,6 +11,7 @@ export const create_sinh_vien = vine.compile(
     sex: vine.boolean().nullable().optional(),
     date: vine.string().regex(/\d{4}-\d{2}-\d{2}/gm).nullable().optional(),
     address: vine.string().trim().escape().nullable().optional(),
+    type: vine.enum(['student', 'instructor']),
     email: vine.string().unique(async (db, value, field) => {
       const user = await db
         .from('users')
